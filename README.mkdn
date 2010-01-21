@@ -1,0 +1,16 @@
+# got foo? #
+
+got is a simple shell script that'll let you know if a given process is running, 
+and provide you with the relevant details if it is. 
+
+	$ got synergy?
+	368 ?? 15:42.74 /Users/krhodes/Applications/synergy-1.3.1/synergyc -f usma1uw-1NRPNH1
+
+The question mark is optional, as is typing in the full name of the process.
+As you can see in the example above, I typed in synergy but I got synergc.
+
+"But, I could just type ps -AH S | grep synergy"
+
+Yes, yes you could. But "got synergy" is a lot shorter, and makes more sense.
+
+I'm sure some of will know some 1337 ways to improve this. Please do. :)

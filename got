@@ -1,0 +1,17 @@
+#!/bin/bash
+APP=`echo $1 | sed s/?$//`
+UNAME=`uname`
+if [ "$UNAME" == 'Darwin' ] || [ ${UNAME%BSD} != "$UNAME" ]; then
+	RESULTS=`ps -awx| grep $APP | grep -v grep | grep -v "got $APP"`
+else
+	RESULTS=`ps -A S| grep $APP | grep -v grep | grep -v "got $APP"`
+fi
+if [ "$RESULTS" != ""  ]; then
+	echo $RESULTS
+else
+	if [ "$UNAME" == 'Darwin' ]; then
+		echo "No $APP found with ps -awx"
+	else
+		echo "No $APP found with ps -A S"
+	fi
+fi
