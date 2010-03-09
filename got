@@ -1,9 +1,10 @@
 #!/bin/bash
 
 DASH=
+DASHP
 
 case `uname` in
-	Darwin|*BSD) DASH=- ;;
+	Darwin|*BSD) DASH=-; DASHP="-p " ;;
 esac
 
 APP=${1%\?}
@@ -15,4 +16,4 @@ if ! [ "$PIDS" ]; then
 	exit 1
 fi
 
-ps w $PIDS
+ps w ${DASHP}$PIDS
